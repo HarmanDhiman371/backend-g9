@@ -1,0 +1,11 @@
+commands fro mongosh shell
+create commands
+1) db.createCollection (for create a new collection)
+2) show dbs
+3) use <db_name>
+4) show collection ( it show all collections)
+ 
+ 5) db.col_name.insertOne({key:value}) 
+ 6) db.col_name.insertMany(" ")
+ 7) db.col_name.insertMany({date: IDODate()}) ( it show cuurent date)
+ 8) db.col_name.find() [ it show all documents] .pretty() for more readable format
