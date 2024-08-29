@@ -1,0 +1,172 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/): use<newDatabase>
+use<newDatabase>
+Current Mongosh Log ID: 66cff60ee4e6a537d62710bb
+Connecting to:          mongodb://127.0.0.1:27017/use%3CnewDatabase%3E?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0
+Using MongoDB:          7.0.14
+Using Mongosh:          2.3.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-08-28T10:19:38.620+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+use<newDatabase>> show collections
+MongoServerError[InvalidNamespace]: Invalid database name: 'use<newDatabase>'
+use<newDatabase>> use <newDatabase>
+switched to db <newDatabase>
+<newDatabase>> show collections
+MongoServerError[InvalidNamespace]: Invalid database name: '<newDatabase>'
+<newDatabase>> use newDatabase
+switched to db newDatabase
+newDatabase> show collections
+faculity
+newCollection
+Student
+user
+newDatabase> db.user.insertOne({date:ISODate()})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66cff851e4e6a537d62710bc')
+}
+newDatabase> db.user.find()
+[
+  {
+    _id: ObjectId('66ceba80df471c1c232710bc'),
+    name: 'Arjan Dhillon',
+    age: 30,
+    occupation: 'Singer'
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710bd'),
+    name: 'Karan Aujla',
+    age: 22,
+    marks: 85
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710be'),
+    name: 'Navaan Sandhu',
+    age: 24,
+    marks: 92
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710bf'),
+    name: 'Arjan dhillon',
+    age: 20,
+    marks: 78
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710c0'),
+    name: 'Prem dhillon',
+    age: 23,
+    marks: 64
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710c1'),
+    name: 'Babbu Maan',
+    age: 21,
+    marks: 88
+  },
+  {
+    _id: ObjectId('66cff851e4e6a537d62710bc'),
+    date: ISODate('2024-08-29T04:25:53.989Z')
+  }
+]
+newDatabase> db.user.find().pretty()
+[
+  {
+    _id: ObjectId('66ceba80df471c1c232710bc'),
+    name: 'Arjan Dhillon',
+    age: 30,
+    occupation: 'Singer'
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710bd'),
+    name: 'Karan Aujla',
+    age: 22,
+    marks: 85
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710be'),
+    name: 'Navaan Sandhu',
+    age: 24,
+    marks: 92
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710bf'),
+    name: 'Arjan dhillon',
+    age: 20,
+    marks: 78
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710c0'),
+    name: 'Prem dhillon',
+    age: 23,
+    marks: 64
+  },
+  {
+    _id: ObjectId('66cebcaedf471c1c232710c1'),
+    name: 'Babbu Maan',
+    age: 21,
+    marks: 88
+  },
+  {
+    _id: ObjectId('66cff851e4e6a537d62710bc'),
+    date: ISODate('2024-08-29T04:25:53.989Z')
+  }
+]
+newDatabase> db.user.find.findOne()
+TypeError: db.user.find.findOne is not a function
+newDatabase> db.user.findOne()
+{
+  _id: ObjectId('66ceba80df471c1c232710bc'),
+  name: 'Arjan Dhillon',
+  age: 30,
+  occupation: 'Singer'
+}
+newDatabase> db.user.findOne({66ceba80df471c1c232710bc})
+Uncaught:
+SyntaxError: Identifier directly after number. (1:19)
+
+> 1 | db.user.findOne({66ceba80df471c1c232710bc})
+    |                    ^
+newDatabase> db.user.findOne({ _id: ObjectId('66ceba80df471c1c232710bc') }
+... :q
+Uncaught:
+SyntaxError: Unexpected token, expected "," (2:0)
+
+  1 | db.user.findOne({ _id: ObjectId('66ceba80df471c1c232710bc') }
+> 2 | :q
+    | ^
+  3 |
+
+newDatabase> db.user.findOne({ _id: ObjectId('66ceba80df471c1c232710bc')})
+{
+  _id: ObjectId('66ceba80df471c1c232710bc'),
+  name: 'Arjan Dhillon',
+  age: 30,
+  occupation: 'Singer'
+}
+newDatabase> db.userfindOne({name:"Arjan Dhillon"})
+TypeError: db.userfindOne is not a function
+newDatabase> db.user.findOne({name:"Arjan Dhillon"})
+{
+  _id: ObjectId('66ceba80df471c1c232710bc'),
+  name: 'Arjan Dhillon',
+  age: 30,
+  occupation: 'Singer'
+}
+newDatabase> db.user.insertOne({name:"Arjan Dhillon"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66cfff04e4e6a537d62710bd')
+}
+newDatabase> db.user.findOne({name:"Arjan Dhillon"})
+{
+  _id: ObjectId('66ceba80df471c1c232710bc'),
+  name: 'Arjan Dhillon',
+  age: 30,
+  occupation: 'Singer'
+}
+newDatabase>
