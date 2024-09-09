@@ -1,0 +1,30 @@
+what is System Design:
+System design is process of defining architecture , components ,  modules , interface
+
+
+=> How to do System Design :
+
+->by identifying the problem (gather all the info about application and architecture);
+
+=> Front End issues:
+
+1. Assets issues: like we directly use img from google ,later it not available
+
+solution: cloud Assets , CLOUDINARY  , Compression Assets
+
+2. Data Overloading - occur to large amount of Data
+
+3. Packages issues - like we using any framework like react dom if any glitch occur in that it will cause 
+issue in front end
+
+4. Security issues - like immature framwork like any new framework released , trust issues on that
+
+=> Backend System Design :
+
+-API DESIGN
+-DATABASE DESIGN
+-LOAD BALANCING
+-MESSAGES QUERIES
+-SCALING
+
+=>Permormance(client side ) VS Scalabiy( Server side)
